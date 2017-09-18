@@ -33,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(finalValue);
 
         AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
-        myAlert.setMessage(finalValue).create();
+        myAlert.setMessage(Integer.toString(finalValue)).create();
         myAlert.show();
+        finalValue = 1;
     }
 
 }
