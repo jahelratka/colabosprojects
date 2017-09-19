@@ -17,30 +17,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void showAlert(View view) {
-        int vnes;
-        EditText txtBox = (EditText) findViewById(R.id.txtInput);
-        vnes = Integer.valueOf(txtBox.getText().toString());
-        List<Integer> list = new ArrayList<Integer>();
-        while (vnes != 1) {
-            for (Integer brojach = 2; brojach <= vnes; brojach++) {
-                if (vnes % brojach == 0) {
+    public void btnCalculateClick(View view) {
+        //Declaring variables
+        int userInput;
+        EditText txtBoxInput = (EditText) findViewById(R.id.txtInput);
+        userInput = Integer.valueOf(txtBoxInput.getText().toString());
+        List<Integer> listPrimeFactors = new ArrayList<>();
 
-                    list.add(brojach);
+        //Nested loops for getting the prime factor of the number (userInput)
+        while (userInput > 1) {
+            for (Integer counter = 2; counter <= userInput; counter++) {
+                if (userInput % counter == 0) {
 
-                    vnes = vnes / brojach;
-                    brojach -= 1;
+                    listPrimeFactors.add(counter);
+
+                    userInput = userInput / counter;
+                    counter -= 1;
 
                 }
             }
-
-
-
-
-
         }
-        AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
-        myAlert.setMessage("The prime factors of the entered number are: " + Arrays.toString(list.toArray())) .create();
-        myAlert.show();
+        //Simple alert showing the array contents.
+        AlertDialog.Builder showAlert = new AlertDialog.Builder(this);
+        if(listPrimeFactors.toArray().length == 0)
+        {
+        showAlert.setMessage("There are not prime factors for the entered number!") .create();
+            showAlert.show();
+        }
+        else {
+            showAlert.setMessage("The prime factors of the entered number are: " + Arrays.toString(listPrimeFactors.toArray())).create();
+            showAlert.show();
+        }
     }
 }
