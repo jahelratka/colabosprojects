@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         List<Integer> listPrimeFactors = new ArrayList<>();
         AlertDialog.Builder showAlert = new AlertDialog.Builder(this);
 
+        String inputText = txtBoxInput.getText().toString();
+
         //Nested loops for getting the prime factor of the number (userInput)
         while (userInput > 1) {
             for (Integer counter = 2; counter <= userInput; counter++) {
@@ -42,15 +44,17 @@ public class MainActivity extends AppCompatActivity {
         }
         //Simple alert showing the array contents.
 
-            if(listPrimeFactors.toArray().length == 0)
-            {
+        if (inputText.isEmpty() || inputText.length() == 0 || inputText.equals("")) {
+            txtBoxInput.setError("Empty box");
+        } else {
+            if (listPrimeFactors.toArray().length == 0) {
                 txtBoxInput.setError("There are no prime factors for the entered number!");
-            }
-            else {
+            } else {
                 showAlert.setMessage("The prime factors of the entered number are: " + Arrays.toString(listPrimeFactors.toArray())).create();
                 showAlert.show();
             }
         }
+    }
 
 
     }
