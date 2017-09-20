@@ -23,20 +23,19 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
         //Initialize new EditText variable and assign the textbox to it then put the value in a double variable.
         EditText txtBoxInput = (EditText) findViewById(R.id.txtInput);
-        double amount = Double.valueOf(txtBoxInput.getText().toString());
 
         String inputText = txtBoxInput.getText().toString();
-
-        //The loop for finding the factorial, the result is stored in the variable finalValue.
-       for(double x = amount; x>0; x--)
-       {
-        finalValue *=  x;
-       }
 
        //Simple alert which displays the result.
         if (inputText.isEmpty() || inputText.length() == 0 || inputText.equals("")) {
             txtBoxInput.setError("Empty box");
         } else {
+            double amount = Double.valueOf(txtBoxInput.getText().toString());
+            //The loop for finding the factorial, the result is stored in the variable finalValue.
+            for(double x = amount; x>0; x--)
+            {
+                finalValue *=  x;
+            }
             myAlert.setMessage(Double.toString(finalValue)).create();
             myAlert.show();
             //Reset the final value to enable another calculation.

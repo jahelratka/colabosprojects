@@ -22,24 +22,12 @@ public class MainActivity extends AppCompatActivity {
         //Declaring variables
         int userInput;
         EditText txtBoxInput = (EditText) findViewById(R.id.txtInput);
-        userInput = Integer.valueOf(txtBoxInput.getText().toString());
         List<String> listFizzBuzz = new ArrayList<>();
         AlertDialog.Builder showAlert = new AlertDialog.Builder(this);
 
         String inputText = txtBoxInput.getText().toString();
 
-        //The main calculation goes here
-        for (int counter = 1; counter <= userInput; counter++) {
-            if (counter % 3 == 0 && counter % 5 == 0) {
-                listFizzBuzz.add("fizzbuzz");
-            } else if (counter % 3 == 0) {
-                listFizzBuzz.add("fizz");
-            } else if (counter % 5 == 0) {
-                listFizzBuzz.add("buzz");
-            } else {
-                listFizzBuzz.add(String.valueOf(counter));
-            }
-        }
+
         //Simple alert showing the array contents.
 
         if (inputText.isEmpty() || inputText.length() == 0 || inputText.equals(""))
@@ -47,12 +35,25 @@ public class MainActivity extends AppCompatActivity {
             txtBoxInput.setError("Empty box");
         }
         else
-            {
+            {userInput = Integer.valueOf(txtBoxInput.getText().toString());
             if (userInput == 0) {
-                listFizzBuzz.add("0");
+                txtBoxInput.setError("Enter Number bigger than 0");
+            }else{
+                //The main calculation goes here
+                for (int counter = 1; counter <= userInput; counter++) {
+                    if (counter % 3 == 0 && counter % 5 == 0) {
+                        listFizzBuzz.add("fizzbuzz");
+                    } else if (counter % 3 == 0) {
+                        listFizzBuzz.add("fizz");
+                    } else if (counter % 5 == 0) {
+                        listFizzBuzz.add("buzz");
+                    } else {
+                        listFizzBuzz.add(String.valueOf(counter));
+                    }
+                }
+                showAlert.setMessage(Arrays.toString(listFizzBuzz.toArray())).create();
+                showAlert.show();
             }
-            showAlert.setMessage(Arrays.toString(listFizzBuzz.toArray())).create();
-            showAlert.show();
 
         }
     }
