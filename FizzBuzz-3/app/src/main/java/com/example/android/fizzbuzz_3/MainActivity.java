@@ -1,7 +1,7 @@
 package com.example.android.fizzbuzz_3;
 
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -12,12 +12,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
-    public void btnCalculateClick(View view) {
+    public void btnCalculateClick(View view)
+    {
 
         //Declaring variables
         int userInput;
@@ -32,12 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
         if (inputText.isEmpty() || inputText.length() == 0 || inputText.equals(""))
         {
-            txtBoxInput.setError("Empty box");
+            txtBoxInput.setError("Please enter a number.");
         }
         else
-            {userInput = Integer.valueOf(txtBoxInput.getText().toString());
+            {
+                userInput = Integer.valueOf(txtBoxInput.getText().toString());
             if (userInput == 0) {
-                txtBoxInput.setError("Enter Number bigger than 0");
+                txtBoxInput.setError("Enter number bigger than 0!");
             }else{
                 //The main calculation goes here
                 for (int counter = 1; counter <= userInput; counter++) {
