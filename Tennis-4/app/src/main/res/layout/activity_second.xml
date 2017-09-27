@@ -11,7 +11,8 @@
         android:layout_width="fill_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:paddingTop="27dp">
+        android:paddingTop="27dp"
+        android:id="@+id/linearLayout">
 
         <RadioButton
             android:id="@+id/player1ToServe"
@@ -21,6 +22,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text=""
+            android:clickable="false"
             android:textAppearance="@android:style/TextAppearance.Large" />
 
         <RadioButton
@@ -31,29 +33,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text=""
-            android:textAppearance="@android:style/TextAppearance.Large" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:paddingTop="30dp">
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="PLAYER 1"
-            android:textAppearance="@android:style/TextAppearance.Large" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="PLAYER 2"
+            android:clickable="false"
             android:textAppearance="@android:style/TextAppearance.Large" />
     </LinearLayout>
 
@@ -416,6 +396,32 @@
         app:layout_constraintVertical_bias="1.0"
         app:layout_constraintLeft_toRightOf="@+id/backButton" />
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="30dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="PLAYER 1"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="PLAYER 2"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

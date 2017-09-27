@@ -74,8 +74,6 @@ public class SecondActivity extends AppCompatActivity
 
         player1ToServe  = (RadioButton) findViewById(R.id.player1ToServe);
         player2ToServe  = (RadioButton) findViewById(R.id.player2ToServe);
-        player1ToServe.setEnabled(false);
-        player2ToServe.setEnabled(false);
         player1ToServe.setChecked(true);
         player2ToServe.setChecked(false);
 
