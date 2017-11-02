@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    void btnCloseActivity (View view)
+    void btnBeginSimulation (View view)
     {
         Intent startSecondActivity = new Intent(this, SecondActivity.class);
         startActivity(startSecondActivity);
